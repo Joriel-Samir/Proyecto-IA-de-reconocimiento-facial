@@ -5,7 +5,6 @@ import imutils
 
 class Cargar():
     def __init__(self):
-        self.cap = cv2.VideoCapture(0)
         self.person_name = ""
         self.save_data = f"C:\\Users\\jorie\\OneDrive\\Documentos\\GitHub\\Proyecto-IA-de-reconocimiento-facial"
         self.save_face = ""
@@ -43,17 +42,19 @@ class SubirRostros(Cargar):
         super().__init__()
         self.ret = ret
         self.frame = frame
+        self.cap = cv2.VideoCapture(0)
         self.Face_clasiff = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
         self.count = 0
-        self.close = cv2.waitKey(1)
+        
     def Recorrer_Video(self,):
         while True: 
+            self.close = cv2.waitKey(1)
             self.ret, self.frame = self.cap.read()
             
             if self.ret == False:
                 break
             
-            cv2.imshow("Capturando rostros para entrenamiento....", self.frame)
+            
             
             self.frame = imutils.resize(self.frame, width=640)
             self.gray = cv2.cvtColor(self.frame, cv2.COLOR_BGR2GRAY)
@@ -71,6 +72,9 @@ class SubirRostros(Cargar):
             
             if self.close == 27 or self.count >= 300:
                 break
+            
+            cv2.imshow("Capturando rostros de entrenamiento", self.frame)
+            
         self.cap.release()
         cv2.destroyAllWindows()
    
