@@ -6,7 +6,7 @@ import imutils
 class Cargar():
     def __init__(self):
         self.person_name = ""
-        self.save_data = f"C:\\Users\\jorie\\OneDrive\\Documentos\\GitHub\\Proyecto-IA-de-reconocimiento-facial"
+        self.save_data = f"C:\\Users\\jorie\\OneDrive\\Documentos\\Proyecto IA universidad\\Data"
         self.save_face = ""
     def guardar_nombre(self):
         self.person_name = self.nombre_var.get()
@@ -17,7 +17,7 @@ class Cargar():
         else:
             print("Carpeta ya existe:", self.save_face)
 
-        self.ventana.destroy()  # Cierra la ventana
+        self.ventana.destroy()  
 
     def preguntar_name(self): 
         self.ventana = tk.Tk()
