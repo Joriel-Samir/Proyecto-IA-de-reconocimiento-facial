@@ -18,9 +18,9 @@ class Entrenar():
                 print("Rostros: ", NameDir + '\\' + FileName)
                 self.labels.append(self.label)
                 self.face_data.append(cv2.imread(self.personpatch + '\\' + FileName, 0))
-                self.image = cv2.imread(self.personpatch + '\\' + FileName, 0)
-                cv2.imshow("Imagenes", self.image)
-                cv2.waitKey(10)
+                #self.image = cv2.imread(self.personpatch + '\\' + FileName, 0)
+                #cv2.imshow("Imagenes", self.image)
+                #cv2.waitKey(10)
                 self.label += 1
             
         print("Labels: ",self.label)

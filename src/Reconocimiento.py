@@ -6,10 +6,10 @@ class Reconocer():
         self.datapatch = f"C:\\Users\\jorie\\OneDrive\\Documentos\\Proyecto IA universidad\\Data"
         self.imagePaths = os.listdir(self.datapatch)
         print("ImagePaths = ", self.imagePaths)
-        self.face_recognizer = cv2.face.EigenFaceRecognizer_create()
+        self.face_recognizer = cv2.face.LBPHFaceRecognizer_create()
     def Identificar(self,): 
         #Leer modelo
-        self.modelo_path = "C:\\Users\\jorie\\OneDrive\\Documentos\\Proyecto IA universidad\\modeloEigenFace.xml"
+        self.modelo_path = "C:\\Users\\jorie\\OneDrive\\Documentos\\Proyecto IA universidad\\modeloLBPH.xml"
         self.face_recognizer.read(self.modelo_path)
         self.cap = cv2.VideoCapture(0)
         self.Face_clasiff = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
